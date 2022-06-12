@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='Transformer_Text_AutoEncoder',
-    version='0.0',    
+    version='0.0.1',    
     description='Transformer Text AutoEncoder: An autoencoder is a type of artificial neural network used to learn efficient encodings of unlabeled data, the same is employed for textual data employing pre-trained models from the hugging-face library.',
     long_description=long_description,
     long_description_content_type='text/markdown',
