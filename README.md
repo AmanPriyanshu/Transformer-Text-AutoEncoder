@@ -10,7 +10,7 @@ pip install Transformer-Text-AutoEncoder
 ## Execution:
 
 ```py
-ttae = TTAE('./data/FinancialNews.txt', no_cuda=True)
+ttae = TTAE('./data/FinancialNews.txt', no_cuda=False)
 ttae.train(10, batch_size=1)
 print(ttae.predict("Hello world"))
 ```
