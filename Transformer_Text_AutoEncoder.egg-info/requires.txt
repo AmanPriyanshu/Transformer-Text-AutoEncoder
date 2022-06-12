@@ -1,0 +1,5 @@
+tqdm>=4
+nltk>=3
+numpy
+transoformers
+torch

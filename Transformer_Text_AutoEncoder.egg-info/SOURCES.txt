@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+Transformer_Text_AutoEncoder/AutoEncoder.py
+Transformer_Text_AutoEncoder/__init__.py
+Transformer_Text_AutoEncoder.egg-info/PKG-INFO
+Transformer_Text_AutoEncoder.egg-info/SOURCES.txt
+Transformer_Text_AutoEncoder.egg-info/dependency_links.txt
+Transformer_Text_AutoEncoder.egg-info/requires.txt
+Transformer_Text_AutoEncoder.egg-info/top_level.txt
