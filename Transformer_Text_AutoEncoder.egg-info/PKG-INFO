@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Transformer-Text-AutoEncoder
-Version: 0.0.3
+Version: 0.0.4
 Summary: Transformer Text AutoEncoder: An autoencoder is a type of artificial neural network used to learn efficient encodings of unlabeled data, the same is employed for textual data employing pre-trained models from the hugging-face library.
 Home-page: https://github.com/AmanPriyanshu/Transformer-Text-AutoEncoder
 Author: Aman Priyanshu
