@@ -23,7 +23,7 @@ class TempObj:
 		return self.last_hidden_state
 
 class TTAE:
-	def __init__(self, path, encoding_model='bert-base-uncased', decoding_model='bert-base-uncased', lr=0.001, r_errors=None, r_encoding=None, no_cuda=False):
+	def __init__(self, data, encoding_model='bert-base-uncased', decoding_model='bert-base-uncased', lr=0.001, no_cuda=False):
 		self.no_cuda = no_cuda
 		self.encoding_model_name = encoding_model
 		self.decoding_model_name = decoding_model
@@ -32,15 +32,12 @@ class TTAE:
 		self.model.config.decoder_start_token_id = self.tokenizer.cls_token_id
 		self.model.config.pad_token_id = self.tokenizer.pad_token_id
 		self.model.config.vocab_size = self.model.config.decoder.vocab_size
-		self.errors = r_errors
-		self.encoding = r_encoding
-		self.path = path
 		self.optimizer = torch.optim.SGD(self.model.parameters(), lr=lr)
 		if not self.no_cuda:
 			self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 		else:
 			self.device = torch.device("cpu")
-		self.data = self.read()
+		self.data = data
 		self.model.to(self.device)
 
 	def shift_tokens_right(input_ids: torch.Tensor, pad_token_id: int, decoder_start_token_id: int):
@@ -53,11 +50,6 @@ class TTAE:
 			raise ValueError("Make sure to set the pad_token_id attribute of the model's configuration.")
 		shifted_input_ids.masked_fill_(shifted_input_ids == -100, pad_token_id)
 		return shifted_input_ids
-
-	def read(self):
-		with open(self.path, "r", encoding=self.encoding, errors=self.errors) as f:
-			data = [i.strip() for i in f.readlines()]
-		return data
 
 	def train(self, epochs, batch_size=8):
 		self.model.train()
